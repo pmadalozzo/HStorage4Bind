@@ -12,6 +12,7 @@ type
       [weak]
       FParent : iHS4Bind;
       FBaseURL : string;
+      FToken : string;
       FEndPoint : string;
     public
       constructor Create(Parent : iHS4Bind);
@@ -20,6 +21,8 @@ type
 
       function BaseURL(const aValue : string) : iHS4BindCredential; overload;
       function BaseURL : string; overload;
+      function Token(aValue : string) : iHS4BindCredential; overload;
+      function Token : string; overload;
       function &End : iHS4Bind;
   end;
 
@@ -58,6 +61,17 @@ end;
 class function THS4BindCredential.New(aParent: iHS4Bind): iHS4BindCredential;
 begin
   result:= Self.Create(aParent);
+end;
+
+function THS4BindCredential.Token: string;
+begin
+  Result := FToken;
+end;
+
+function THS4BindCredential.Token(aValue: string): iHS4BindCredential;
+begin
+  Result := self;
+  FToken := aValue;
 end;
 
 end.

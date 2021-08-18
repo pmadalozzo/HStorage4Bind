@@ -77,6 +77,12 @@ begin
   Strm := TMemoryStream.Create;
   vIdHTTP := TIdHTTP.Create(nil);
   try
+    if FParent.Credential.Token <> '' then
+      vIdHTTP
+      .Request
+      .CustomHeaders
+      .AddValue('Authorization', FParent.Credential.Token);
+
     vIdHTTP.Get(URL, Strm);
     if (Strm.Size > 0) then
     begin

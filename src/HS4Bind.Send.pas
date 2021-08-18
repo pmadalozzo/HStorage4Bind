@@ -107,6 +107,7 @@ begin
 
   LResponse :=
   TRequest.New.BaseURL(FParent.Credential.BaseURL+FEndPoint)
+    .Token(FParent.Credential.Token)
     .ContentType(FContentType)
     .AddHeader('FileName', FFileName)
     .AddHeader('Path', FPath)
