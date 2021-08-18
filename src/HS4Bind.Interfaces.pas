@@ -44,6 +44,8 @@ type
   ['{73FC2594-C32E-48A4-A8AE-82CD8ED26F27}']
   function BaseURL(const aValue : string) : iHS4BindCredential; overload;
   function BaseURL : string; overload;
+  function Token(aValue : string) : iHS4BindCredential; overload;
+  function Token : string; overload;
   function &End : iHS4Bind;
   end;
 
