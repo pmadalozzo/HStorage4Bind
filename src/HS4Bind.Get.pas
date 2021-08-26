@@ -69,11 +69,9 @@ end;
 
 procedure THS4bindGet.GetImageByUrl(URL: string; APicture: TPicture);
 var
-  Jpeg: TJPEGImage;
   Strm: TMemoryStream;
   vIdHTTP : TIdHTTP;
 begin
-  Jpeg := TJPEGImage.Create;
   Strm := TMemoryStream.Create;
   vIdHTTP := TIdHTTP.Create(nil);
   try
@@ -87,12 +85,10 @@ begin
     if (Strm.Size > 0) then
     begin
       Strm.Position := 0;
-      Jpeg.LoadFromStream(Strm);
-      APicture.Assign(Jpeg);
+      APicture.LoadFromStream(Strm);
     end;
   finally
     Strm.Free;
-    Jpeg.Free;
     vIdHTTP.Free;
   end;
 end;
